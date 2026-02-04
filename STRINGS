@@ -1,0 +1,29 @@
+def word_counter(text):
+    # Remove punctuation and convert to lowercase
+    import string
+    
+    # Clean up the text
+    clean_text = text.translate(str.maketrans("", "", string.punctuation)).lower()
+    
+    # Split into words
+    words = clean_text.split()
+    
+    # Count the occurrences of each word
+    word_count = {}
+    for word in words:
+        word_count[word] = word_count.get(word, 0) + 1
+    
+    return word_count
+
+# Sample text
+sample_text = """
+Python is great for data analysis and machine learning. 
+Python is also widely used in web development. 
+The versatility of Python makes it an excellent choice for beginners and experienced programmers alike.
+"""
+
+# Count words
+result = word_counter(sample_text)
+print("Word Count:")
+for word, count in result.items():
+    print(f"{word}: {count}")
